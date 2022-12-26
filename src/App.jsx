@@ -23,23 +23,24 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-        <a className="navbar-brand text-white" href="#">
+      <nav className="navbar navbar-expand-md navbar-dark mb-4 bg-info">
+        <img src="../public/favicon.svg" width="50" height="50" alt="" />
+        <a className="navbar-brand text-white ml-2" href="#">
           Clima Tempo App
         </a>
       </nav>
 
-      <main className="container">
+      <main className="container col-md-4">
         <div className="jumbotron">
           <h1>
             Veja agora a previsão do clima e tempo da sua cidade!
           </h1>
-          <p className="lead">
+          <p className="lead mb-4">
             Digite o nome da sua cidade no campo abaixo e em seguida clique em pesquisar.
           </p>
 
           <div className="row mb-4">
-            <div className="col-md-6">
+            <div className="col-md-12">
               <input
                 placeholder="Nome da cidade"
                 className="form-control"
@@ -48,22 +49,20 @@ function App() {
               />
             </div>
           </div>
-          <button className="btn btn-primary btn-lg" onClick={handleSearch}>
+          <button className="btn btn-outline-info btn-lg" onClick={handleSearch}>
             Pesquisar
           </button>
 
           {weatherForecast ? (
-            <div>
-              <div className="mt-4 d-flex align-items-center">
-                <div>
-                  <img src={weatherForecast.current.condition.icon} alt="" />
-                </div>
-                <div>
-                  <h3>Hoje o dia está: {weatherForecast.current.condition.text}</h3>
-                  <p className="lead">
-                    Temp: {weatherForecast.current.temp_c}º
-                  </p>
-                </div>
+            <div className="row flex-row mt-4">
+              <div className="col-md-2">
+                <img src={weatherForecast.current.condition.icon} alt="" />
+              </div>
+              <div className="col-md-10">
+                <h3>Hoje o dia está: {weatherForecast.current.condition.text}</h3>
+                <p className="lead">
+                  Temp: {weatherForecast.current.temp_c}º
+                </p>
               </div>
             </div>
           ) : null}
