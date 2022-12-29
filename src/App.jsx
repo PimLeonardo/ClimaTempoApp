@@ -49,20 +49,31 @@ function App() {
               />
             </div>
           </div>
-          <button className="btn btn-outline-info btn-lg" onClick={handleSearch}>
+          <button className="d-block ml-auto btn btn-outline-info btn-lg" onClick={handleSearch}>
             Pesquisar
           </button>
 
           {weatherForecast ? (
-            <div className="row flex-row mt-4">
-              <div className="col-md-2">
-                <img src={weatherForecast.current.condition.icon} alt="" />
+            <div className="flex-row flex-wrap mt-4">
+              <div className="d-flex justify-content-around mb-2 p-4">
+                <img className="m-auto p-2" src={weatherForecast.current.condition.icon} alt="" />
+                <h3 className="m-auto text-left">Hoje o dia está: {weatherForecast.current.condition.text}</h3>
               </div>
-              <div className="col-md-10">
-                <h3>Hoje o dia está: {weatherForecast.current.condition.text}</h3>
+              <div className="d-flex justify-content-around">
                 <p className="lead">
                   Temp: {weatherForecast.current.temp_c}º
                 </p>
+                <p className="lead">
+                  Umidade: {weatherForecast.current.humidity}%
+                </p>
+              </div>
+              <div className="d-flex justify-content-around">
+                <div class="p2 mr-auto">Cidade: {weatherForecast.location.name}</div>
+                <div class="p2 ml-auto">Latitude: {weatherForecast.location.lat}</div>
+              </div>
+              <div className="d-flex justify-content-around">
+                <div class="p2 mr-auto">Estado: {weatherForecast.location.region}</div>
+                <div class="p2 ml-auto">Longitude: {weatherForecast.location.lon}</div>
               </div>
             </div>
           ) : null}
