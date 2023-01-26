@@ -24,7 +24,7 @@ function App() {
   return (
     <div>
       <nav className="navbar navbar-expand-md navbar-dark mb-4 bg-info">
-        <img src="../public/favicon.svg" width="50" height="50" alt="" />
+        <img src="./favicon.svg" width="50" height="50" alt="" />
         <a className="navbar-brand text-white ml-2" href="#">
           Clima Tempo App
         </a>
